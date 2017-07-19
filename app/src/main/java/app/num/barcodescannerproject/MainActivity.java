@@ -89,6 +89,7 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
                 Manifest.permission.CAMERA)
                 != PackageManager.PERMISSION_GRANTED) {
 
+
             // Should we show an explanation?
             if (ActivityCompat.shouldShowRequestPermissionRationale(this,
                     Manifest.permission.CAMERA)) {
