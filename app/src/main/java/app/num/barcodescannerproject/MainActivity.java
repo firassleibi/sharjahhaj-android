@@ -6,9 +6,11 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.Build;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -17,6 +19,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.webkit.CookieSyncManager;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -53,7 +56,9 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
             }
             @Override
             public void onPageFinished(WebView view, String url) {
+                CookieSyncManager.getInstance().sync();
                 loading.dismiss();
+
             }
         });
 
@@ -218,6 +223,15 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
                     QrScanner2();
                 }
             });
+
+
+        }
+
+        @JavascriptInterface
+        public void callNumber(String number){
+
+            Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse(number));
+            startActivity(intent);
 
 
         }
