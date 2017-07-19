@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="app.num.barcodescannerproject.MainActivity">
+
+    <Button android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:text="QRScanner"
+        android:onClick="QrScanner"
+        android:id="@+id/button" />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <WebView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/webView"
+        android:layout_below="@+id/button"
+    />
+            <LinearLayout
+                android:background="#FFFFFF"
+                android:id="@+id/wrapper"
+                android:orientation="vertical"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+                    <Button
+                        android:onClick="back"
+                        android:text="الرجوع"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent" />
+
+                </LinearLayout>
+                <LinearLayout
+
+                    android:background="#FFFFFF"
+                    android:orientation="vertical"
+                    android:id="@+id/qrshower"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                </LinearLayout>
+            </LinearLayout>
+
+    </FrameLayout>
+</LinearLayout>
